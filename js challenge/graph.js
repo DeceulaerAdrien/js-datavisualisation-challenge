@@ -11,8 +11,13 @@
         xhr.send();
     }, 1000);
 
-    var ctx = document.getElementById('myChart');
-    var chart = new Chart(ctx, {
+
+    document.getElementById("bodyContent").insertBefore `<canvas id="myChart" class="myChart" width="400" height="400"></canvas>`;
+
+
+
+    let ctx = document.getElementById('myChart');
+    let chart = new Chart(ctx, {
         type: 'line',
         data: [{
             x: 0,
@@ -45,5 +50,4 @@
             x: 9,
             y: 20
         }]
-    }
     });
