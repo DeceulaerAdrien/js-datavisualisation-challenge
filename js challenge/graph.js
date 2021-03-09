@@ -1,5 +1,4 @@
 let xhr = new XMLHttpRequest;
-let result;
 let divA = document.querySelector('#bodyContent');
 let divB = document.querySelector('#mw-content-text');
 
