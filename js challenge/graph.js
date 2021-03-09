@@ -13,13 +13,13 @@ let ctxChart1 = document.querySelector('#chart1').getContext('2d');
 divB.insertBefore(document.createElement('div'), divB.childNodes[10]);
 divB.childNodes[10].setAttribute("id", "canvas2");
 document.getElementById('canvas2').innerHTML = `<canvas width = "400" height ="400" id = "chart2"></canvas>`;
-let ctxC2 = document.querySelector('#chart2').getContext('2d');
+let ctxChart2 = document.querySelector('#chart2').getContext('2d');
 
 
 divB.insertBefore(document.createElement('div'), divB.childNodes[38]);
 divB.childNodes[38].setAttribute("id", "canvas3");
 document.getElementById('canvas3').innerHTML = `<canvas width = "400" height ="400" id ="chart3"></canvas>`;
-let ctxC3 = document.querySelector('#chart3').getContext('2d');
+let ctxChart3 = document.querySelector('#chart3').getContext('2d');
 
 
 
@@ -34,8 +34,8 @@ setInterval(() => {
     xhr.onload = function () {
         if (this.status === 200) {
             result = JSON.parse(this.response);
-            result.forEach(data = (key, value) => {
-                console.log(key, value)
+            result.forEach(data => {
+
             });
         } else if (this.status === 404) {
             console.log('ERROR 404');
