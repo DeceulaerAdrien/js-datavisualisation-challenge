@@ -5,49 +5,24 @@
             if (this.status === 200) {
                 let result = (JSON.parse(this.responseText));
                 console.log(result);
-
             }
         }
         xhr.send();
     }, 1000);
 
 
-    document.getElementById("bodyContent").insertBefore `<canvas id="myChart" class="myChart" width="400" height="400"></canvas>`;
-
-
-
-    let ctx = document.getElementById('myChart');
-    let chart = new Chart(ctx, {
-        type: 'line',
-        data: [{
-            x: 0,
-            y: 8
-        }, {
-            x: 1,
-            y: 6
-        }, {
-            x: 2,
-            y: 6
-        }, {
-            x: 3,
-            y: 11
-        }, {
-            x: 4,
-            y: 14
-        }, {
-            x: 5,
-            y: 12
-        }, {
-            x: 6,
-            y: 11
-        }, {
-            x: 7,
-            y: 16
-        }, {
-            x: 8,
-            y: 20
-        }, {
-            x: 9,
-            y: 20
-        }]
+    var ctx = document.getElementById('myChart');
+    var myChart = new Chart(ctx, {
+        type: 'scatter',
+        data: {
+            datasets: [{
+                label: 'number',
+                data: [{ x: 5, y: 2 }, { x: 8, y: 4 }, { x: 1, y: 9 }, { x: 4, y: 7 }, { x: 3, y: 9 }, { x: 4, y: 9 }, ],
+                borderColor: 'rgba(0,0,255,1)',
+                backgroundColor: 'rgba(0,0,0,0)',
+            }, ],
+        },
+        options: {
+            responsive: true,
+        }
     });

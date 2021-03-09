@@ -1,29 +1,27 @@
+setInterval(function timer() {
+    let xhr = new XMLHttpRequest;
+    xhr.open('POST', 'https://canvasjs.com/services/data/datapoints.php', true)
+    xhr.onload = function() {
+        if (this.status === 200) {
+            let result = (JSON.parse(this.responseText));
+            console.log(result);
+
+        }
+    }
+    xhr.send();
+}, 1000);
+
 var ctx = document.getElementById('myChart');
 var myChart = new Chart(ctx, {
-    type: 'bar',
+    type: 'scatter',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['Coord 1', 'Coord 2', 'Coord 3', 'Coord 4', 'Coord 5', 'Coord 6'],
         datasets: [{
             label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
+            data: [{ x: 5, y: 2 }, { x: 8, y: 4 }, { x: 1, y: 9 }, { x: 4, y: 7 }, { x: 3, y: 9 }, { x: 4, y: 9 }, ],
+            borderColor: 'rgba(0,0,255,1)',
+            backgroundColor: 'rgba(0,0,0,0)',
+        }, ],
     },
     options: {
         scales: {
@@ -31,7 +29,7 @@ var myChart = new Chart(ctx, {
                 ticks: {
                     beginAtZero: true
                 }
-            }]
+            }],
         }
     }
 });
