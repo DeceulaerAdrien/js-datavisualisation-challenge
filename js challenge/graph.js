@@ -1,11 +1,13 @@
 let xhr = new XMLHttpRequest;
+let tab1 = document.querySelector('#table1');
+let tab2 = document.querySelector('#table2');
 let divA = document.querySelector('#bodyContent');
 let divB = document.querySelector('#mw-content-text');
 
 divA.insertBefore(document.createElement('div'), divA.firstChild);
 divA.firstChild.setAttribute("id", "canvas1");
 document.getElementById('canvas1').innerHTML = `<canvas width = "400" height ="400" id = "chart1"></canvas>`;
-let ctxC1 = document.querySelector('#chart1').getContext('2d');
+let ctxChart1 = document.querySelector('#chart1').getContext('2d');
 
 
 divB.insertBefore(document.createElement('div'), divB.childNodes[10]);
@@ -21,13 +23,20 @@ let ctxC3 = document.querySelector('#chart3').getContext('2d');
 
 
 
+
+
+
+let datapoint = []
+
+
 setInterval(() => {
     xhr.open('POST', 'https://canvasjs.com/services/data/datapoints.php', true)
     xhr.onload = function () {
         if (this.status === 200) {
             result = JSON.parse(this.response);
-            console.log(result[0])
-
+            result.forEach(data = (key, value) => {
+                console.log(key, value)
+            });
         } else if (this.status === 404) {
             console.log('ERROR 404');
         }
@@ -35,29 +44,6 @@ setInterval(() => {
     xhr.send();
 
 }, 1000);
-let scatterChart = new Chart(ctxC1, {
-    type: 'scatter',
-    data: {
-        datasets: [{
-            label: 'Scatter Dataset',
-            data: [{
-                x: 10,
-                y: 0
-            }, {
-                x: 0,
-                y: 10
-            }]
-        }]
-    },
-    options: {
-        scales: {
-            xAxes: [{
-                type: 'linear',
-                position: 'bottom'
-            }]
-        }
-    }
-});
 
 /*var scatterChart = new Chart(ctx, {
     type: 'scatter',
