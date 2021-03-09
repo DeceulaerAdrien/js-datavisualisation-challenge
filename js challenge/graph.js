@@ -27,11 +27,13 @@ const canvasC = () => {
 }
 
 setInterval(() => {
+
     xhr.open('POST', 'https://canvasjs.com/services/data/datapoints.php', true)
     xhr.onload = function () {
         if (this.status === 200) {
-            result = this.responseText;
+            result = JSON.parse(this.response);
             console.log(result);
+            console.log((result[0])[1])
         } else if (this.status === 404) {
             console.log('ERROR 404');
         }
