@@ -1,11 +1,14 @@
 let xhr = new XMLHttpRequest;
 let divA = document.querySelector('#bodyContent');
 let divB = document.querySelector('#mw-content-text');
+let ctxC1 = document.querySelector('#chart1').getContext('2d');
+let ctxC2 = document.querySelector('#chart2').getContext('2d');
+let ctxC3 = document.querySelector('#chart3').getContext('2d');
 
 const canvas = () => {
     divA.insertBefore(document.createElement('div'), divA.firstChild);
     divA.firstChild.setAttribute("id", "canvas1");
-    document.getElementById('canvas1').innerHTML = `<canvas width = "400" height ="400" id = "chart2"></canvas>`;
+    document.getElementById('canvas1').innerHTML = `<canvas width = "400" height ="400" id = "chart1"></canvas>`;
 
     divB.insertBefore(document.createElement('div'), divB.childNodes[10]);
     divB.childNodes[10].setAttribute("id", "canvas2");
@@ -32,3 +35,29 @@ setInterval(() => {
 }, 1000);
 
 canvas();
+/*var scatterChart = new Chart(ctx, {
+    type: 'scatter',
+    data: {
+        datasets: [{
+            label: 'Scatter Dataset',
+            data: [{
+                x: -10,
+                y: 0
+            }, {
+                x: 0,
+                y: 10
+            }, {
+                x: 10,
+                y: 5
+            }]
+        }]
+    },
+    options: {
+        scales: {
+            xAxes: [{
+                type: 'linear',
+                position: 'bottom'
+            }]
+        }
+    }
+});*/
