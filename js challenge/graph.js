@@ -34,40 +34,13 @@ setInterval(() => {
     xhr.onload = function () {
         if (this.status === 200) {
             result = JSON.parse(this.response);
-            result.forEach(data => {
-
+            result.forEach(data = (value, key) => {
+                datapoint.push({ x: value[0], y: value[1] })
             });
         } else if (this.status === 404) {
             console.log('ERROR 404');
         }
     }
     xhr.send();
-
+    //console.log(datapoint)
 }, 1000);
-
-/*var scatterChart = new Chart(ctx, {
-    type: 'scatter',
-    data: {
-        datasets: [{
-            label: 'Scatter Dataset',
-            data: [{
-                x: -10,
-                y: 0
-            }, {
-                x: 0,
-                y: 10
-            }, {
-                x: 10,
-                y: 5
-            }]
-        }]
-    },
-    options: {
-        scales: {
-            xAxes: [{
-                type: 'linear',
-                position: 'bottom'
-            }]
-        }
-    }
-});*/
