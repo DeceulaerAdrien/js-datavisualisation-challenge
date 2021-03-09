@@ -2,9 +2,7 @@ var ctx = document.getElementById('myChart');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['red'],
         datasets: [{
-            label: '# of Votes',
             data: [{
                 x: 10,
                 y: 20
