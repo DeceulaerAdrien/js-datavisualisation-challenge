@@ -1,5 +1,13 @@
 let xhr = new XMLHttpRequest;
 let result;
+let canvas = document.createElement('canvas')
+let divC = document.querySelector('#bodyContent')
+
+divC.insertBefore(canvas, divC.firstChild)
+document.getElementsByTagName('canvas')[0].setAttribute("id", "canvas1");
+document.getElementById('canvas1').setAttribute("width", "400");
+document.getElementById('canvas1').setAttribute("height", "400");
+
 setInterval(() => {
     xhr.open('POST', 'https://canvasjs.com/services/data/datapoints.php', true)
     xhr.onload = function () {
@@ -12,10 +20,3 @@ setInterval(() => {
     }
     xhr.send();
 }, 1000);
-
-let canvas = document.createElement('canvas')
-let divC = document.querySelector('#bodyContent')
-divC.insertBefore(canvas, divC.firstChild)
-document.getElementsByTagName('canvas')[0].setAttribute("id", "canvas1");
-document.getElementById('canvas1').setAttribute("width", "400");
-document.getElementById('canvas1').setAttribute("height", "400");
