@@ -25,6 +25,7 @@ const canvasC = () => {
     document.getElementById('canvas3').setAttribute("width", "400");
     document.getElementById('canvas3').setAttribute("height", "400");
 }
+
 setInterval(() => {
     xhr.open('POST', 'https://canvasjs.com/services/data/datapoints.php', true)
     xhr.onload = function () {
