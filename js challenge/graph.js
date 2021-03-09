@@ -33,7 +33,7 @@ setInterval(() => {
             result = this.responseText;
             console.log(result);
         } else if (this.status === 404) {
-            console.log('ERROR 404 RETRY');
+            console.log('ERROR 404');
         }
     }
     xhr.send();
