@@ -5,15 +5,15 @@ let divB = document.querySelector('#mw-content-text');
 const canvas = () => {
     divA.insertBefore(document.createElement('div'), divA.firstChild);
     divA.firstChild.setAttribute("id", "canvas1");
-    document.getElementById('canvas1').innerHTML = `<canvas width = "400" height ="400"></canvas>`;
+    document.getElementById('canvas1').innerHTML = `<canvas width = "400" height ="400" id = "chart2"></canvas>`;
 
     divB.insertBefore(document.createElement('div'), divB.childNodes[10]);
     divB.childNodes[10].setAttribute("id", "canvas2");
-    document.getElementById('canvas2').innerHTML = `<canvas width = "400" height ="400"></canvas>`;
+    document.getElementById('canvas2').innerHTML = `<canvas width = "400" height ="400" id = "chart2"></canvas>`;
 
     divB.insertBefore(document.createElement('div'), divB.childNodes[38]);
     divB.childNodes[38].setAttribute("id", "canvas3");
-    document.getElementById('canvas3').innerHTML = `<canvas width = "400" height ="400"></canvas>`;
+    document.getElementById('canvas3').innerHTML = `<canvas width = "400" height ="400" id ="chart3"></canvas>`;
 
 }
 
