@@ -66,28 +66,26 @@ let scatterChart = new Chart(ctxChar1, {
 let scatterChart2 = new Chart(ctxChar2, {
     type: 'line',
     data: {
+        labels: [2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012],
         datasets: [{
-            label: 'Scatter Dataset',
-            data: [{
-                x: -10,
-                y: 0
-            }, {
-                x: 0,
-                y: 10
-            }, {
-                x: 10,
-                y: 5
-            }]
-        }]
+            data: [1012.8, 1007.8, 1013.7, 999.4, 1022.8, 1034.4, 1043.6, 1067.3, 1072, 1111, 1073.8],
+            label: "Belgium",
+            borderColor: "#8e5ea5",
+            fill: false
+        }, {
+            data: [282, 350, 411, 502, 635, 809, 947, 1402, 3700, 5267],
+            label: "Bulgaria",
+            borderColor: "#8e5ea2",
+            fill: false
+        }, ]
     },
     options: {
-        scales: {
-            xAxes: [{
-                type: 'linear',
-                position: 'bottom'
-            }]
+        title: {
+            display: true,
+            text: 'World population per region (in millions)'
         }
     }
+
 });
 
 let scatterChart3 = new Chart(ctxChar3, {
@@ -109,17 +107,7 @@ let scatterChart3 = new Chart(ctxChar3, {
     },
 
     options: {
-
-        legend: { display: false },
-
-        title: {
-
-            display: true,
-
-            text: 'Predicted world population (millions) in 2050'
-
-        }
-
+        legend: { display: true },
     }
 
 });
