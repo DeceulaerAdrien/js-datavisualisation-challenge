@@ -9,12 +9,12 @@ const canvas = () => {
     document.getElementById('canvas1').setAttribute("width", "400");
     document.getElementById('canvas1').setAttribute("height", "400");
 
-    divB.insertBefore(document.createElement('canvas'), divB.childNodes[10]);
+    divB.insertBefore(document.createElement('div'), divB.childNodes[10]);
     divB.childNodes[10].setAttribute("id", "canvas2");
     document.getElementById('canvas2').setAttribute("width", "400");
     document.getElementById('canvas2').setAttribute("height", "400");
 
-    divB.insertBefore(document.createElement('canvas'), divB.childNodes[38]);
+    divB.insertBefore(document.createElement('div'), divB.childNodes[38]);
     divB.childNodes[38].setAttribute("id", "canvas3");
     document.getElementById('canvas3').setAttribute("width", "400");
     document.getElementById('canvas3').setAttribute("height", "400");
@@ -26,13 +26,13 @@ setInterval(() => {
     xhr.onload = function () {
         if (this.status === 200) {
             result = JSON.parse(this.response);
-            console.log(result);
-            console.log((result[0])[1])
+            console.log(result[0])
         } else if (this.status === 404) {
             console.log('ERROR 404');
         }
     }
     xhr.send();
+
 }, 1000);
 
 canvas();
