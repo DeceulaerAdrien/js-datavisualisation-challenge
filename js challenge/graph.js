@@ -127,6 +127,11 @@ let scatterChart2 = new Chart(ctxChar2, {
             label: "Italy(4)",
             borderColor: "#0F9DE8",
             fill: false
+        }, {
+            data: [2231, 2456, 2417, 2579, 2771, 2933, 2709, 2629, 2621, 2763, 2818],
+            label: "Italy(4)",
+            borderColor: "#0F9DE8",
+            fill: false
         }, ]
     },
     options: {
