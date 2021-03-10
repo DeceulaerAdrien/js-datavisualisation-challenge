@@ -1,71 +1,119 @@
+//variable init
 let xhr = new XMLHttpRequest;
 let divA = document.querySelector('#bodyContent');
 let divB = document.querySelector('#mw-content-text');
-const colBlue = ["#0000FF", "#79F8F8", "#007FFF", "#1E7FCB", "#74D0F1", "#A9EAFE", "#3A8EBA", "#686F8C", "#5472AE", "#0095B6", "#26C4EC", "#357AB7", "#8EA2C6", "#17657D", "#8EA2C6", "#77B5FE", "#22427C", "#24445C", "#318CE7", "#003366", "#24445C", "#1560BD", "#00CCCB", "#2C75FF", "#56739A", "#7F8FA6", "#6050DC", "#03224C", "#0F056B", "#2B009A", "#2B009A", "#0ABAB5", "#26C4EC", "#048B9A", "#00FFFF", "#791CF8", "#2E006C", "#002FA7", "#21177D", "#26619C", "#9683EC", "#56739A", "#CCCCFF", "#25FDE9", ];
+let datatab = [];
+let chart = [];
+const labels = [];
 
 
+//create all canvas on HTML
 divA.insertBefore(document.createElement('div'), divA.firstChild);
 divA.firstChild.setAttribute("id", "canvas1");
 document.getElementById('canvas1').innerHTML = `<canvas width = "400" height ="400" id = "chart1"></canvas>`;
-let ctxChar1 = document.querySelector('#chart1').getContext('2d');
+let ctxChart1 = document.querySelector('#chart1').getContext('2d');
+
 
 
 divB.insertBefore(document.createElement('div'), divB.childNodes[10]);
 divB.childNodes[10].setAttribute("id", "canvas2");
 document.getElementById('canvas2').innerHTML = `<canvas width = "400" height ="400" id = "chart2"></canvas>`;
-let ctxChar2 = document.querySelector('#chart2').getContext('2d');
+let ctxChart2 = document.querySelector('#chart2').getContext('2d');
+
 
 
 divB.insertBefore(document.createElement('div'), divB.childNodes[38]);
 divB.childNodes[38].setAttribute("id", "canvas3");
 document.getElementById('canvas3').innerHTML = `<canvas width = "400" height ="400" id ="chart3"></canvas>`;
-let ctxChar3 = document.querySelector('#chart3').getContext('2d');
+let ctxChart3 = document.querySelector('#chart3').getContext('2d');
 
 
 
-setInterval(() => {
-    xhr.open('POST', 'https://canvasjs.com/services/data/datapoints.php', true)
-    xhr.onload = function() {
+//request datapoint and canvas 1
+const data = () => {
+    const labels = [];
+
+
+    xhr.open('POST', 'https://canvasjs.com/services/data/datapoints.php?xstart=1&ystart=10&length=10&type=json', true)
+    xhr.onload = function () {
         if (this.status === 200) {
             result = JSON.parse(this.response);
-            console.log(result[0])
-
+            result.forEach(element => {
+                labels.push(element[0])
+                datatab.push({ y: parseInt(element[1]) })
+            });
         } else if (this.status === 404) {
             console.log('ERROR 404');
         }
+        chart = new Chart(ctxChart1, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: ['Crime statistics'],
+                    data: datatab,
+                    backgroundColor: 'rgba(0,0,0,0)'
+                }]
+            },
+            options: {
+                animation: {
+                    duration: 0
+                },
+                maintainAspectRatio: false,
+                responsive: false
+            }
+        });
     }
     xhr.send();
+    chart1Update();
+}
 
-}, 1000);
+//Update Canvas1
+const chart1Update = () => {
+    xhr.open('POST', "https://canvasjs.com/services/data/datapoints.php?xstart=" + (datatab.length + 1) + "&ystart=" + (datatab[datatab.length - 1]) + "&length=1&type=json", true)
+    xhr.onload = function () {
+        if (this.status === 200) {
+            result = JSON.parse(this.response);
+            result.forEach(element => {
+                labels.push(element[0])
+                datatab.push({ y: parseInt(element[1]) })
+            });
+        } else if (this.status === 404) {
+            console.log('ERROR 404');
+        };
+        chart = new Chart(ctxChart1, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: ['Crime statistics'],
+                    data: datatab,
+                    backgroundColor: 'rgba(0,0,0,0)',
+                    borderColor: '#2873e6'
 
-let scatterChart = new Chart(ctxChar1, {
-    type: 'scatter',
-    data: {
-        datasets: [{
-            label: 'Scatter Dataset',
-            data: [{
-                x: -10,
-                y: 0
-            }, {
-                x: 0,
-                y: 10
-            }, {
-                x: 10,
-                y: 5
-            }]
-        }]
-    },
-    options: {
-        scales: {
-            xAxes: [{
-                type: 'linear',
-                position: 'bottom'
-            }]
-        }
+                }]
+            },
+            options: {
+                animation: {
+                    duration: 0
+                },
+                maintainAspectRatio: true,
+                responsive: true
+            }
+        });
     }
-});
 
-let scatterChart2 = new Chart(ctxChar2, {
+
+    setTimeout(() => {
+        chart1Update()
+    }, 1000)
+    xhr.send();
+
+};
+
+//canvas 2
+const data2 = () => {
+let Chart2 = new Chart(ctxChar2, {
     type: 'line',
     data: {
         labels: [2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012],
@@ -254,27 +302,59 @@ let scatterChart2 = new Chart(ctxChar2, {
     }
 
 });
+};
+//canvas 3
+const data3 = () => {
+    const tab = [];
+    const country = []
+    const labelCountry = []
+    const data2007 = []
+    const data2010 = []
+    let a = 0
 
-let scatterChart3 = new Chart(ctxChar3, {
-    type: 'bar',
-    data: {
-        labels: ["Latvia", "Lithuania", "Estionia", "Czech Republic", "Poland", "Slovakia", "Hungray", "England and Wales(UK)", "Scotland(UK)", "Spain", "Romania", "Malta", "Bulgaria", "Luxembourg", "Portugal", "Croatia", "Italy", "Greece", "France", "Austria", "Belgium", "Northern Ireland (UK)", "The Nederlands", "Germany", "Ireland", "Cyprus", "Danemark", "Sweden", "Slovenia", "Finland"],
-        datasets: [{
+    const data = document.querySelectorAll('#table2 td').forEach(element => {
+        tab.push(element.textContent)
+    });
+
+    for (i = 3; i < 32; i++) {
+        country.push(tab.slice(0 + a, 3 + a))
+        a += 3
+
+    };
+
+    country.forEach(element => {
+
+        labelCountry.push(element[0])
+        data2007.push(element[1])
+        data2010.push(element[2])
+
+    })
+
+    let scatterChart3 = new Chart(ctxChart3, {
+        type: 'bar',
+        data: {
+            labels: labelCountry,
+            datasets: [{
                 label: '2007-09',
-                data: ["312", "247", "266", "198", "228", "159", "148", "151", "150", "158", "132", "126", "132", "139", "106", "108", "98", "105", "99", "101", "93", "84", "90", "89", "76", "84", "66", "74", "66", "63"],
+                data: data2007,
                 backgroundColor: "#2873e6",
             },
             {
                 label: '2010-12',
-                data: ["312", "307", "253", "217", "214", "197", "169", "154", "154", "152", "150", "143", "132", "126", "120", "116", "113", "112", "106", "104", "101", "91", "84", "84", "80", "78", "72", "71", "65", "60"],
+                data: data2010,
                 backgroundColor: "#73a2eb",
             }
-        ]
+            ]
 
-    },
+        },
 
-    options: {
-        legend: { display: true },
-    }
+        options: {
+            legend: { display: true },
+        }
 
-});
+    });
+};
+
+data()
+data2()
+data3()
