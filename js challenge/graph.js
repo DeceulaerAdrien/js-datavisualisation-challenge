@@ -108,4 +108,35 @@ const chart1Update = () => {
         chart1Update()
     }, 1000)
 };
+//canvas 3
+const data2 = () => {
+    const tab = [];
+    const country = []
+    const labelCountry = []
+    const data2007 = []
+    const data2010 = []
+    let a = 0
+
+    const data = document.querySelectorAll('#table2 td').forEach(element => {
+        tab.push(element.textContent)
+    });
+
+    for (i = 3; i < 32; i++) {
+        a += 3
+        country.push(tab.slice(0 + a, 3 + a))
+    };
+    labelCountry.push(tab[0])
+    data2007.push(tab[1])
+    data2010.push(tab[2])
+    country.forEach(element => {
+
+        labelCountry.push(element[0])
+        data2007.push(element[1])
+        data2010.push(element[2])
+    })
+
+    console.log(labelCountry)
+    console.log(data2007)
+    console.log(data2010)
+};
 //data()
