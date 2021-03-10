@@ -159,6 +159,91 @@ let scatterChart2 = new Chart(ctxChar2, {
             label: "Malta",
             borderColor: "#318CE7",
             fill: false
+        }, {
+            data: [1401, 1369, 1319, 1348, 1311, 1303, 1277, 1254, 1194, 1194, 1139],
+            label: "The Netherlands(6)",
+            borderColor: "#003366",
+            fill: false
+        }, {
+            data: [591, 643, 346, 605, 589, 594, 572, 591, 535, 540, 548],
+            label: "Austria",
+            borderColor: "#24445C",
+            fill: false
+        }, {
+            data: [1404, 1466, 1461, 1380, 1387, 1153, 1082, 1129, 1151, 1159, 1119],
+            label: "Poland",
+            borderColor: "#1560BD",
+            fill: false
+        }, {
+            data: [391, 417, 416, 392, 399, 398, 430, 426, 422, 413, 403],
+            label: "Portugal",
+            borderColor: "#00CCCB",
+            fill: false
+        }, {
+            data: [312, 276, 231, 208, 232, 281, 289, 299, 292, 258, 308],
+            label: "Romania",
+            borderColor: "#1034A6",
+            fill: false
+        }, {
+            data: [77, 76, 86, 84, 90, 88, 81, 87, 89, 88, 91],
+            label: "Slovenia",
+            borderColor: "#2C75FF",
+            fill: false
+        }, {
+            data: [107, 111, 131, 123, 115, 110, 104, 104, 95, 92, 90],
+            label: "Slovakia",
+            borderColor: "#56739A",
+            fill: false
+        }, {
+            data: [435, 443, 445, 432, 416, 435, 440, 441, 431, 458, 425],
+            label: "Finland(7)",
+            borderColor: "#6050DC",
+            fill: false
+        }, {
+            data: [1234, 1255, 1248, 1241, 1225, 1306, 1377, 1405, 1370, 1416, 1408],
+            label: "Sweden",
+            borderColor: "#03224C",
+            fill: false
+        }, {
+            data: [19, 17, 16, 12, 13, 13, 14, 16, 14, 13, 11],
+            label: "Iceland(8)",
+            borderColor: "#73C2FB",
+            fill: false
+        }, {
+            data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+            label: "Liechtenstein",
+            borderColor: "#24445C",
+            fill: false
+        }, {
+            data: [319, 303, 287, 275, 277, 271, 264, 277, 270, 264, 273],
+            label: "Norway",
+            borderColor: "#0F056B",
+            fill: false
+        }, {
+            data: [356, 379, 389, 352, 335, 326, 323, 676, 656, 693, 750],
+            label: "Switzermand(7)",
+            borderColor: "#2B009A",
+            fill: false
+        }, {
+            data: [8, 8, 8, 9, 9, 9, 8, 8, 7, 6, 5],
+            label: "Montenegro",
+            borderColor: "#067790",
+            fill: false
+        }, {
+            data: [18, 22, 22, 22, 22, 26, 28, 27, 28, 29, 29],
+            label: "Macedonia",
+            borderColor: "#1D4851",
+            fill: false
+        }, {
+            data: [95, 90, 99, 102, 99, 104, 106, 102, 101, 99, 96],
+            label: "Serbia",
+            borderColor: "#008080",
+            fill: false
+        }, {
+            data: [438, 472, 507, 667, 975, 970, 1012, 1288, 1521, 1652, 1904],
+            label: "Turkey(9)",
+            borderColor: "#791CF8",
+            fill: false
         }, ]
     },
     options: {
