@@ -1,7 +1,5 @@
 //variable init
 let xhr = new XMLHttpRequest;
-//let tab1 = document.querySelector('#table1');
-//let tab2 = document.querySelector('#table2');
 let divA = document.querySelector('#bodyContent');
 let divB = document.querySelector('#mw-content-text');
 let datatab = [];
@@ -9,7 +7,7 @@ let chart = [];
 const labels = [];
 
 
-//create all canvas
+//create all canvas on HTML
 divA.insertBefore(document.createElement('div'), divA.firstChild);
 divA.firstChild.setAttribute("id", "canvas1");
 document.getElementById('canvas1').innerHTML = `<canvas width = "400" height ="400" id = "chart1"></canvas>`;
@@ -108,6 +106,7 @@ const chart1Update = () => {
         chart1Update()
     }, 1000)
 };
+//canvas 2
 //canvas 3
 const data2 = () => {
     const tab = [];
@@ -138,5 +137,29 @@ const data2 = () => {
     console.log(labelCountry)
     console.log(data2007)
     console.log(data2010)
+    let scatterChart3 = new Chart(ctxChart3, {
+        type: 'bar',
+        data: {
+            labels: labelCountry,
+            datasets: [{
+                label: '2007-09',
+                data: data2007,
+                backgroundColor: "#2873e6",
+            },
+            {
+                label: '2010-12',
+                data: data2010,
+                backgroundColor: "#73a2eb",
+            }
+            ]
+
+        },
+
+        options: {
+            legend: { display: true },
+        }
+
+    });
 };
 //data()
+data2()
