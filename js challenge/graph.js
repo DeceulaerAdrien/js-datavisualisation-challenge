@@ -1,6 +1,8 @@
 let xhr = new XMLHttpRequest;
 let divA = document.querySelector('#bodyContent');
 let divB = document.querySelector('#mw-content-text');
+const colBlue = ["#0000FF", "#79F8F8", "#007FFF", "#1E7FCB", "#74D0F1", "#A9EAFE", "#3A8EBA", "#686F8C", "#5472AE", "#0095B6", "#26C4EC", "#357AB7", "#8EA2C6", "#17657D", "#8EA2C6", "#77B5FE", "#22427C", "#24445C", "#318CE7", "#003366", "#24445C", "#1560BD", "#00CCCB", "#2C75FF", "#56739A", "#7F8FA6", "#6050DC", "#03224C", "#0F056B", "#2B009A", "#2B009A", "#0ABAB5", "#26C4EC", "#048B9A", "#00FFFF", "#791CF8", "#2E006C", "#002FA7", "#21177D", "#26619C", "#9683EC", "#56739A", "#CCCCFF", "#25FDE9", ];
+
 
 divA.insertBefore(document.createElement('div'), divA.firstChild);
 divA.firstChild.setAttribute("id", "canvas1");
@@ -128,9 +130,34 @@ let scatterChart2 = new Chart(ctxChar2, {
             borderColor: "#0F9DE8",
             fill: false
         }, {
-            data: [2231, 2456, 2417, 2579, 2771, 2933, 2709, 2629, 2621, 2763, 2818],
-            label: "Italy(4)",
-            borderColor: "#0F9DE8",
+            data: [4, 7, 7, 7, 7, 7, 7, 7, 8, 8, 8],
+            label: "Cyprus",
+            borderColor: "#357AB7",
+            fill: false
+        }, {
+            data: [49, 51, 62, 51, 62, 55, 57, 56, 51, 51, 49],
+            label: "Latvia(5)",
+            borderColor: "#8EA2C6",
+            fill: false
+        }, {
+            data: [72, 79, 84, 82, 75, 68, 72, 76, 70, 72, 75],
+            label: "Lithuania",
+            borderColor: "#77B5FE",
+            fill: false
+        }, {
+            data: [26, 26, 26, 25, 25, 28, 28, 32, 30, 35, 37],
+            label: "Luxembourg",
+            borderColor: "#22427C",
+            fill: false
+        }, {
+            data: [420, 413, 418, 436, 425, 426, 408, 394, 447, 451, 472],
+            label: "Hungray",
+            borderColor: "#24445C",
+            fill: false
+        }, {
+            data: [17, 17, 18, 18, 16, 15, 13, 12, 13, 14, 15],
+            label: "Malta",
+            borderColor: "#318CE7",
             fill: false
         }, ]
     },
