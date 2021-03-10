@@ -26,7 +26,7 @@ document.getElementById('canvas3').innerHTML = `<canvas width = "400" height ="4
 let ctxChart3 = document.querySelector('#chart3').getContext('2d');
 
 
-//request datapoint for canvas 1
+//request datapoint and canvas 1
 const data = () => {
     const labels = [];
 
@@ -100,16 +100,16 @@ const chart1Update = () => {
         });
     }
 
-    xhr.send();
 
     setTimeout(() => {
         chart1Update()
     }, 1000)
-};
-//canvas 2
-const data2 = () => {
+    xhr.send();
 
-}
+};
+
+//canvas 2
+
 //canvas 3
 const data3 = () => {
     const tab = [];
@@ -124,22 +124,19 @@ const data3 = () => {
     });
 
     for (i = 3; i < 32; i++) {
-        a += 3
         country.push(tab.slice(0 + a, 3 + a))
+        a += 3
+
     };
-    labelCountry.push(tab[0])
-    data2007.push(tab[1])
-    data2010.push(tab[2])
+
     country.forEach(element => {
 
         labelCountry.push(element[0])
         data2007.push(element[1])
         data2010.push(element[2])
+
     })
 
-    console.log(labelCountry)
-    console.log(data2007)
-    console.log(data2010)
     let scatterChart3 = new Chart(ctxChart3, {
         type: 'bar',
         data: {
@@ -164,5 +161,6 @@ const data3 = () => {
 
     });
 };
+
 //data()
 data3()
