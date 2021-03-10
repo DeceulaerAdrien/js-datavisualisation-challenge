@@ -107,8 +107,11 @@ const chart1Update = () => {
     }, 1000)
 };
 //canvas 2
-//canvas 3
 const data2 = () => {
+
+}
+//canvas 3
+const data3 = () => {
     const tab = [];
     const country = []
     const labelCountry = []
@@ -162,4 +165,4 @@ const data2 = () => {
     });
 };
 //data()
-data2()
+data3()
