@@ -162,5 +162,6 @@ const data3 = () => {
     });
 };
 
-//data()
+data()
+data2()
 data3()
