@@ -68,14 +68,64 @@ let scatterChart2 = new Chart(ctxChar2, {
     data: {
         labels: [2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012],
         datasets: [{
-            data: [1012.8, 1007.8, 1013.7, 999.4, 1022.8, 1034.4, 1043.6, 1067.3, 1072, 1111, 1073.8],
+            data: [1012, 1007, 1013, 999, 1022, 1034, 1043, 1067, 1072, 1111, 1073],
             label: "Belgium",
-            borderColor: "#8e5ea5",
+            borderColor: "#0000FF",
             fill: false
         }, {
-            data: [282, 350, 411, 502, 635, 809, 947, 1402, 3700, 5267],
+            data: [146, 143, 142, 137, 136, 134, 126, 138, 147, 128, 120],
             label: "Bulgaria",
-            borderColor: "#8e5ea2",
+            borderColor: "#79F8F8",
+            fill: false
+        }, {
+            data: [372, 357, 351, 344, 336, 357, 343, 332, 313, 317, 304],
+            label: "Czech Republic",
+            borderColor: "#007FFF",
+            fill: false
+        }, {
+            data: [491, 486, 474, 432, 425, 445, 477, 491, 471, 466, 440],
+            label: "Denmark",
+            borderColor: "#1E7FCB",
+            fill: false
+        }, {
+            data: [6507, 6572, 6633, 6391, 6304, 6287, 6114, 6054, 5933, 5990, 5997],
+            label: "Germany",
+            borderColor: "#74D0F1",
+            fill: false
+        }, {
+            data: [53, 53, 53, 52, 51, 50, 51, 48, 48, 42, 40],
+            label: "Estonia(1)",
+            borderColor: "#A9EAFE",
+            fill: false
+        }, {
+            data: [106, 103, 99, 102, 103, ],
+            label: "Ireland",
+            borderColor: "#3A8EBA",
+            fill: false
+        }, {
+            data: [441, 441, 405, 456, 463, 423, 417, 386, 334, 194, 194],
+            label: "Greece(2)",
+            borderColor: "#686F8C",
+            fill: false
+        }, {
+            data: [2183, 2144, 2141, 2230, 2267, 2309, 2369, 2339, 2297, 2285, 2268],
+            label: "Spain(3)",
+            borderColor: "#5472AE",
+            fill: false
+        }, {
+            data: [4113, 3947, 3825, 3775, 3725, 3589, 3558, 3521, ],
+            label: "France",
+            borderColor: "#0095B6",
+            fill: false
+        }, {
+            data: [77, 80, 85, 79, 81, 75, 74, 73, 73, 75, 72],
+            label: "Croatia",
+            borderColor: "#26C4EC",
+            fill: false
+        }, {
+            data: [2231, 2456, 2417, 2579, 2771, 2933, 2709, 2629, 2621, 2763, 2818],
+            label: "Italy(4)",
+            borderColor: "#0F9DE8",
             fill: false
         }, ]
     },
