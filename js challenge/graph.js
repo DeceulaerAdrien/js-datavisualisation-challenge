@@ -9,7 +9,7 @@ let chart = [];
 const labels = [];
 
 
-//create canvas
+//create all canvas
 divA.insertBefore(document.createElement('div'), divA.firstChild);
 divA.firstChild.setAttribute("id", "canvas1");
 document.getElementById('canvas1').innerHTML = `<canvas width = "400" height ="400" id = "chart1"></canvas>`;
@@ -28,7 +28,7 @@ document.getElementById('canvas3').innerHTML = `<canvas width = "400" height ="4
 let ctxChart3 = document.querySelector('#chart3').getContext('2d');
 
 
-//request datapoint 
+//request datapoint for canvas 1
 const data = () => {
     const labels = [];
 
@@ -49,15 +49,16 @@ const data = () => {
                 labels: labels,
                 datasets: [{
                     label: ['Crime statistics'],
-                    data: datatab
+                    data: datatab,
+                    backgroundColor: 'rgba(0,0,0,0)'
                 }]
             },
             options: {
                 animation: {
                     duration: 0
                 },
-                maintainAspectRatio: true,
-                responsive: true
+                maintainAspectRatio: false,
+                responsive: false
             }
         });
     }
@@ -85,7 +86,10 @@ const chart1Update = () => {
                 labels: labels,
                 datasets: [{
                     label: ['Crime statistics'],
-                    data: datatab
+                    data: datatab,
+                    backgroundColor: 'rgba(0,0,0,0)',
+                    borderColor: '#2873e6'
+
                 }]
             },
             options: {
