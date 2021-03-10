@@ -6,6 +6,8 @@ let divA = document.querySelector('#bodyContent');
 let divB = document.querySelector('#mw-content-text');
 let datatab = [];
 let chart = [];
+const labels = [];
+
 
 //create canvas
 divA.insertBefore(document.createElement('div'), divA.firstChild);
@@ -29,6 +31,7 @@ let ctxChart3 = document.querySelector('#chart3').getContext('2d');
 //request datapoint 
 const data = () => {
     const labels = [];
+
     xhr.open('POST', 'https://canvasjs.com/services/data/datapoints.php?xstart=1&ystart=10&length=10&type=json', true)
     xhr.onload = function () {
         if (this.status === 200) {
@@ -53,31 +56,52 @@ const data = () => {
                 animation: {
                     duration: 0
                 },
-                maintainAspectRatio: false,
-                responsive: false
+                maintainAspectRatio: true,
+                responsive: true
             }
         });
     }
     xhr.send();
-    console.log(datatab)
+    chart1Update();
 }
+
 
 //Update Canvas1
 const chart1Update = () => {
     xhr.open('POST', "https://canvasjs.com/services/data/datapoints.php?xstart=" + (datatab.length + 1) + "&ystart=" + (datatab[datatab.length - 1]) + "&length=1&type=json", true)
-    xhr.onload = () => {
+    xhr.onload = function () {
         if (this.status === 200) {
             result = JSON.parse(this.response);
-            result.forEach(element = () => {
-                datatab.push({ x: parseInt[0], y: parseInt[1] })
+            result.forEach(element => {
+                labels.push(element[0])
+                datatab.push({ y: parseInt(element[1]) })
             });
         } else if (this.status === 404) {
             console.log('ERROR 404');
-        }
+        };
+        chart = new Chart(ctxChart1, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: ['Crime statistics'],
+                    data: datatab
+                }]
+            },
+            options: {
+                animation: {
+                    duration: 0
+                },
+                maintainAspectRatio: true,
+                responsive: true
+            }
+        });
     }
+
     xhr.send();
+
     setTimeout(() => {
         chart1Update()
     }, 1000)
 };
-data()
+//data()
