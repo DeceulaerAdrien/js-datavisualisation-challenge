@@ -112,8 +112,7 @@ const chart1Update = () => {
 };
 
 //canvas 2
-const data2 = () => {
-let Chart2 = new Chart(ctxChar2, {
+let Chart2 = new Chart(ctxChart2, {
     type: 'line',
     data: {
         labels: [2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012],
@@ -148,7 +147,7 @@ let Chart2 = new Chart(ctxChar2, {
             borderColor: "#A9EAFE",
             fill: false
         }, {
-            data: [106, 103, 99, 102, 103, ],
+            data: [106, 103, 99, 102, 103,],
             label: "Ireland",
             borderColor: "#3A8EBA",
             fill: false
@@ -163,7 +162,7 @@ let Chart2 = new Chart(ctxChar2, {
             borderColor: "#5472AE",
             fill: false
         }, {
-            data: [4113, 3947, 3825, 3775, 3725, 3589, 3558, 3521, ],
+            data: [4113, 3947, 3825, 3775, 3725, 3589, 3558, 3521,],
             label: "France",
             borderColor: "#0095B6",
             fill: false
@@ -292,7 +291,7 @@ let Chart2 = new Chart(ctxChar2, {
             label: "Turkey(9)",
             borderColor: "#791CF8",
             fill: false
-        }, ]
+        },]
     },
     options: {
         title: {
@@ -302,7 +301,6 @@ let Chart2 = new Chart(ctxChar2, {
     }
 
 });
-};
 //canvas 3
 const data3 = () => {
     const tab = [];
@@ -356,5 +354,4 @@ const data3 = () => {
 };
 
 data()
-data2()
 data3()
