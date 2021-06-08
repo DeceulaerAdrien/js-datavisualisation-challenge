@@ -34,3 +34,4 @@ Le projet est déployer sur GitHub Page
 ## Auteurs
 
 - **Adrien Deceulaer** _alias_ [@DeceulaerAdrien](https://github.com/DeceulaerAdrien)
+- **Arnaud Want** _alias_ [@Naudar79 ](https://github.com/Naudar79)
